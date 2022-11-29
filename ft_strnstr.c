@@ -6,7 +6,7 @@
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:46:40 by zoesente          #+#    #+#             */
-/*   Updated: 2022/11/28 21:08:16 by zoesente         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:14:05 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
     }
     return(0);
 }
-

@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 15:45:26 by zoesente          #+#    #+#             */
-/*   Updated: 2022/11/29 14:41:46 by zoesente         ###   ########.fr       */
+/*   Created: 2022/11/28 23:08:53 by zoesente          #+#    #+#             */
+/*   Updated: 2022/11/29 12:58:41 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+void *ft_memmove(void *dst, const void *src, size_t len)
 {
-    int i; 
-    int len; 
-
+    size_t           i;
+    unsigned char    *s1; 
+    unsigned char    *s2; 
+   
     i = 0; 
-    len = ft_strlen(s);
-    while(i <=len)
+    s1 = (unsigned char*) src; 
+    s2 = (unsigned char*) dst; 
+    if(s1 < s2)
     {
-        if(s[i] == (char) c)
-            return  ((char*) &s[i]);
-        i++;
+        while(i < len)
+        {
+            s2[len - 1] = s1[len - 1]; 
+            len--; 
+        }
     }
-    return(0); 
+    else 
+    {
+        while(i < len)
+        {
+            s2[i] = s1[i]; 
+            i++; 
+        }
+    }
+    return(dst);
 }
