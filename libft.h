@@ -6,7 +6,7 @@
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:50:03 by zoesente          #+#    #+#             */
-/*   Updated: 2022/11/29 21:08:24 by zoesente         ###   ########.fr       */
+/*   Updated: 2022/11/30 10:23:57 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ int     ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize); 
 char    *ft_strdup(const char *s1);
 size_t  ft_strlcat(char *dst, const char *src, size_t dstsize);
+
+int     ft_atoi(const char *str);
 #endif
