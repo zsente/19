@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 22:14:40 by zoesente          #+#    #+#             */
-/*   Updated: 2022/12/01 10:08:28 by zoesente         ###   ########.fr       */
+/*   Created: 2022/12/03 14:57:10 by zoesente          #+#    #+#             */
+/*   Updated: 2022/12/03 15:57:19 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_bzero(void *s, size_t n)
+void ft_putnbr_fd(int n, int fd)
 {
-    size_t i;
-    char *str_c; 
-
-    str_c = (char *)s; 
-    i = 0; 
-    while(i < n)
+    char c;
+ 
+    if(n == -2147483648)
     {
-        *(str_c + i) = 0; 
-        i++;
+        ft_putstr_fd("-2147483648", fd); 
+    }
+    else if(n < 0)
+    {
+        n *= -1; 
+        ft_putchar_fd('-', fd); 
+        ft_putnbr_fd(n, fd); 
+    }
+    else if (n > 9)
+    {
+        ft_putnbr_fd(n / 10, fd); 
+        ft_putnbr_fd(n % 10, fd); 
+    }
+    else 
+    {
+        c = n + '0'; 
+       ft_putchar_fd(c, fd); 
     }
 }
