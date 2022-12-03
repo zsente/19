@@ -6,7 +6,7 @@
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:46:13 by zoesente          #+#    #+#             */
-/*   Updated: 2022/11/30 17:34:54 by zoesente         ###   ########.fr       */
+/*   Updated: 2022/12/03 23:19:57 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
     size_t srclen; 
 
     i = 0; 
+    if(dstsize == 0)
+        return(0); 
     dstlen = ft_strlen(dst); 
     srclen = ft_strlen(src); 
-
    if(dstsize > 0 &&  dstlen < dstsize - 1) 
    {
         while(src[i] && i < dstsize - dstlen - 1)

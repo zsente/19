@@ -6,7 +6,7 @@
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:46:40 by zoesente          #+#    #+#             */
-/*   Updated: 2022/11/29 13:14:05 by zoesente         ###   ########.fr       */
+/*   Updated: 2022/12/03 23:22:03 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
     i = 0;
     if (needle[i] == '\0')
         return((char*) haystack);
-
     while(haystack[i] != '\0' && i < len)
     {
         j = 0; 

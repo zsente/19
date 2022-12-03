@@ -6,7 +6,7 @@
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 23:08:53 by zoesente          #+#    #+#             */
-/*   Updated: 2022/11/29 12:58:41 by zoesente         ###   ########.fr       */
+/*   Updated: 2022/12/03 23:30:09 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void *ft_memmove(void *dst, const void *src, size_t len)
     i = 0; 
     s1 = (unsigned char*) src; 
     s2 = (unsigned char*) dst; 
+    if(!src && !dst)
+        return(NULL); 
     if(s1 < s2)
     {
         while(i < len)
