@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zoesente <zoesente@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 15:46:13 by zoesente          #+#    #+#             */
-/*   Updated: 2022/12/06 17:50:51 by zoesente         ###   ########.fr       */
+/*   Created: 2022/12/05 20:27:38 by zoesente          #+#    #+#             */
+/*   Updated: 2022/12/06 15:55:37 by zoesente         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	dstlen;
-	size_t	srclen;
+	t_list	*new;
+	t_list	*aux;
+	t_list	*temp;
 
-	i = 0;
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	if (dstsize == 0)
-		return (srclen);
-	if (dstsize > 0 && dstlen < dstsize - 1)
+	if (!lst || !f)
+		return (NULL);
+	new = ft_lstnew(f(lst->content));
+	if (!new)
+		return (NULL);
+	aux = new;
+	lst = lst->next;
+	while (lst)
 	{
-		while (src[i] && i < dstsize - dstlen - 1)
+		temp = ft_lstnew(f(lst->content));
+		if (!temp)
 		{
-			dst[dstlen + i] = src[i];
-			i++;
+			ft_lstclear(&new, del);
+			return (NULL);
 		}
-		dst[dstlen + i] = '\0';
+	aux->next = temp;
+	aux = temp;
+	lst = lst->next;
 	}
-	if (dstlen > dstsize)
-		dstlen = dstsize;
-	return (dstlen + srclen);
+	return (new);
 }
